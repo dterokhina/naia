@@ -61,6 +61,10 @@
   document.addEventListener("click", function (e) {
     var b = e.target.closest("[data-set]");
     if (b) { set(b.dataset.set, b.dataset.val); apply(); return; }
+    var mb = e.target.closest("#menuBtn"), mn = document.getElementById("mnav");
+    if (mb && mn) { var o = mn.hidden; mn.hidden = !o; mb.setAttribute("aria-expanded", String(o)); root.classList.toggle("menu-open", o); return; }
+    if (mn && !mn.hidden && e.target.closest("#mnav a")) { mn.hidden = true; document.getElementById("menuBtn").setAttribute("aria-expanded", "false"); root.classList.remove("menu-open"); }
+    if (e.target.closest(".opensettings")) { if (mn) { mn.hidden = true; root.classList.remove("menu-open"); } var sp = document.getElementById("settings"); if (sp) { sp.hidden = false; var sb = document.getElementById("settingsBtn"); if (sb) sb.setAttribute("aria-expanded", "true"); } return; }
     var t = e.target.closest("#settingsBtn");
     var p = document.getElementById("settings");
     if (t && p) { var open = p.hidden; p.hidden = !open; t.setAttribute("aria-expanded", String(open)); return; }

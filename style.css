@@ -823,3 +823,152 @@ img.phone{box-sizing:border-box;padding:7px;background:#0b0b0d;border-radius:44p
   .hero .glow{width:140%}
   .trio .phone{max-width:200px}
 }
+
+/* ===================================================================
+   V3 · PROFESSIONAL LAYOUT SYSTEM (overrides everything above)
+   one container, one spacing scale, one type scale
+   =================================================================== */
+:root{--maxw:1140px;--gut:24px;--sec:112px}
+@media (max-width:860px){:root{--sec:72px}}
+@media (max-width:560px){:root{--gut:20px;--sec:60px}}
+.wrap{max-width:calc(var(--maxw) + 2*var(--gut));padding-left:max(var(--gut),env(safe-area-inset-left));padding-right:max(var(--gut),env(safe-area-inset-right))}
+.wrap.narrow{max-width:calc(760px + 2*var(--gut))}
+section.band{padding:var(--sec) 0}
+
+/* ---------- header ---------- */
+header.site{position:sticky;top:0;z-index:30;background:rgba(9,26,40,.72);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+header.site .wrap.nav2{display:flex;align-items:center;gap:32px;min-height:68px;padding-top:0;padding-bottom:0;flex-wrap:nowrap}
+header.site .brand{margin-right:0;min-height:0}
+header.site .logo{height:28px}
+nav.main{display:flex!important;gap:28px;margin-left:auto;margin-right:4px;overflow:visible;width:auto;order:0;padding:0}
+nav.main a{color:var(--muted);text-decoration:none;font-size:.9375rem;font-weight:500;padding:6px 0;position:relative;white-space:nowrap}
+nav.main a:hover{color:var(--ink)}
+nav.main a[aria-current="page"]{color:var(--ink)}
+nav.main a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;border-radius:2px;background:var(--lut)}
+.btn.navbtn{min-height:40px;padding:0 18px;font-size:.9375rem;box-shadow:0 6px 18px rgba(169,156,235,.28)}
+.menubtn{display:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--glass);color:var(--ink);cursor:pointer;place-items:center;padding:0}
+.menubtn svg{width:22px;height:22px}
+.mnav{border-top:1px solid rgba(255,255,255,.07);background:rgba(9,26,40,.97)}
+.mnav .wrap{display:flex;flex-direction:column;padding-top:8px;padding-bottom:20px}
+.mnav a,.mnav button{display:block;text-align:left;padding:14px 2px;font:inherit;font-size:1.0625rem;font-weight:500;color:var(--ink);text-decoration:none;border:0;border-bottom:1px solid var(--line);background:none;cursor:pointer}
+.mnav button{color:var(--muted);border-bottom:0}
+.mnav a[aria-current="page"]{color:var(--lut)}
+@media (max-width:860px){
+  nav.main{display:none!important}
+  .menubtn{display:grid}
+  header.site .wrap.nav2{gap:10px;min-height:60px}
+  .btn.navbtn{margin-left:auto;min-height:38px;padding:0 14px;font-size:.875rem}
+  header.site{position:sticky}
+}
+@media (min-width:861px){.mnav{display:none!important}}
+
+/* ---------- hero ---------- */
+.hero.v3{padding:72px 0 40px;min-height:0}
+@media (min-width:861px){.hero.v3{min-height:calc(100svh - 68px);display:flex;align-items:center}}
+.hero.v3 .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;width:100%}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;border-radius:999px;background:rgba(169,156,235,.12);border:1px solid rgba(169,156,235,.35);color:var(--ink);font-size:.8125rem;font-weight:600;margin:0 0 22px}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--fol);box-shadow:0 0 0 4px rgba(125,211,168,.2)}
+.hero.v3 h1{font-size:clamp(2.5rem,5vw,4.1rem);line-height:1.04;letter-spacing:-.035em;margin:0 0 20px;font-weight:700}
+.hero.v3 .lead{font-size:1.1875rem;line-height:1.6;color:var(--muted);max-width:30em;margin:0 0 32px}
+.hero.v3 .soon{display:none}
+.hcta .stores{margin:0}
+.proof{list-style:none;display:flex;flex-wrap:wrap;gap:10px 22px;margin:26px 0 0;padding:0;color:var(--muted);font-size:.9375rem;font-weight:500}
+.proof li{display:inline-flex;align-items:center;gap:8px;max-width:none}
+.proof svg{width:16px;height:16px;padding:3px;border-radius:50%;background:rgba(125,211,168,.16);color:var(--fol);box-sizing:content-box}
+.hero.v3 .shot .phone{max-width:300px;width:100%}
+@media (max-width:860px){
+  .hero.v3{padding:40px 0 8px}
+  .hero.v3 .wrap{grid-template-columns:1fr;gap:44px}
+  .hero.v3 .htext{text-align:center}
+  .hero.v3 .lead{margin-left:auto;margin-right:auto}
+  .hero.v3 .stores{justify-content:center}
+  .proof{justify-content:center}
+  .hero.v3 .shot .phone{max-width:min(250px,66vw)}
+}
+@media (max-width:560px){
+  .hero.v3 h1{font-size:2.15rem;letter-spacing:-.03em}
+  .hero.v3 .lead{font-size:1rem;margin-bottom:26px}
+  .badge{margin-bottom:18px}
+  .proof{gap:8px 16px;font-size:.8125rem}
+}
+
+/* ---------- section heads ---------- */
+.sechead{text-align:center;max-width:680px;margin:0 auto 56px}
+.sechead h2,.pcard h2,.ctacard h2{font-size:clamp(1.85rem,3.4vw,2.75rem);line-height:1.12;letter-spacing:-.025em;font-weight:700;margin:0}
+.sechead .sub{margin:14px auto 0;font-size:1.0625rem;color:var(--muted);max-width:34em}
+@media (max-width:560px){.sechead{margin-bottom:36px}.sechead h2,.pcard h2,.ctacard h2{font-size:1.65rem}.sechead .sub{font-size:.9375rem}}
+
+/* ---------- features: alternating rows ---------- */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:980px;margin:0 auto}
+.feat+.feat{margin-top:104px}
+.feat.rev .ftext{order:2}
+.fnum{display:inline-flex;align-items:center;gap:12px;font-size:.875rem;font-weight:700;letter-spacing:.08em;color:var(--c)}
+.fnum::after{content:"";width:40px;height:2px;border-radius:2px;background:var(--c);opacity:.6}
+.ftext h3{font-size:clamp(1.6rem,2.8vw,2.25rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;margin:14px 0 14px}
+.ftext p{font-size:1.0625rem;line-height:1.65;color:var(--muted);max-width:26em}
+.fimg{position:relative;display:grid;place-items:center}
+.fimg::before{content:"";position:absolute;width:min(420px,95%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--c) 30%,transparent),transparent 68%);filter:blur(8px)}
+.fimg .phone{position:relative;max-width:270px;width:100%}
+@media (max-width:860px){
+  .feat{grid-template-columns:1fr;gap:32px;text-align:center}
+  .feat.rev .ftext{order:0}
+  .ftext p{margin:0 auto}
+  .feat+.feat{margin-top:72px}
+  .fimg .phone{max-width:min(230px,62vw)}
+}
+@media (max-width:560px){.ftext h3{font-size:1.4rem;margin:10px 0}.ftext p{font-size:.9375rem}.feat+.feat{margin-top:60px}}
+
+/* ---------- dive ---------- */
+#dive{max-width:980px;margin:0 auto}
+
+/* ---------- also in the app: 3 columns ---------- */
+.rows{grid-template-columns:repeat(3,1fr);column-gap:40px;max-width:1040px;margin:0 auto}
+@media (max-width:960px){.rows{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.rows{grid-template-columns:1fr}}
+
+/* ---------- privacy card ---------- */
+.pcard{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;max-width:1000px;margin:0 auto;padding:52px 56px;border-radius:32px;background:linear-gradient(135deg,rgba(125,211,168,.13),rgba(169,156,235,.08) 60%,rgba(255,255,255,.03));border:1px solid rgba(125,211,168,.25)}
+.pshield{width:88px;height:88px;color:var(--fol);filter:drop-shadow(0 0 24px rgba(125,211,168,.35))}
+.pcard .proof{margin:18px 0 18px;justify-content:flex-start}
+.pcard p{margin:0}
+@media (max-width:860px){.pcard{grid-template-columns:1fr;text-align:center;padding:40px 24px;gap:20px}.pshield{margin:0 auto;width:64px;height:64px}.pcard .proof{justify-content:center}}
+
+/* ---------- final CTA ---------- */
+.ctacard{position:relative;overflow:hidden;text-align:center;padding:80px 24px;border-radius:36px;background:radial-gradient(ellipse 70% 80% at 50% 0%,rgba(169,156,235,.28),transparent 70%),linear-gradient(160deg,#16304a,#0b1d2e 70%);border:1px solid rgba(169,156,235,.3);box-shadow:0 40px 80px rgba(0,0,0,.35)}
+.ctacard>*{position:relative}
+.ctacard .caustic{position:absolute}
+.cicon{width:80px;height:80px;border-radius:20px;margin:0 auto 24px;display:block;box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.1)}
+.ctacard .sub{margin:12px auto 28px;color:var(--muted);font-size:1.0625rem}
+.ctacard .stores{justify-content:center}
+.ctacard .soon{text-align:center;margin-top:14px}
+.ctacard .storepop{margin-left:auto;margin-right:auto}
+@media (max-width:560px){.ctacard{padding:56px 20px;border-radius:28px}.cicon{width:64px;height:64px;border-radius:16px}}
+
+/* ---------- footer ---------- */
+.seabed{margin-top:24px}
+footer.site{padding:0;margin:0;background:#081822;border-top:1px solid rgba(255,255,255,.06)}
+footer.site .wrap.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-top:64px;padding-bottom:48px;align-items:start;justify-content:stretch}
+.fbrand .logo{height:28px;margin-bottom:14px}
+.fbrand p{color:var(--muted);font-size:.9375rem;max-width:22em}
+.fcol h3{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:4px 0 14px}
+.fcol a,.fcol button{display:block;padding:5px 0;color:var(--muted);text-decoration:none;font:inherit;font-size:.9375rem;background:none;border:0;cursor:pointer;text-align:left}
+.fcol a:hover,.fcol button:hover{color:var(--ink)}
+footer.site .wrap.fbottom{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding-top:22px;padding-bottom:max(36px,calc(env(safe-area-inset-bottom) + 20px));border-top:1px solid rgba(255,255,255,.06);color:var(--dim);font-size:.8125rem}
+@media (max-width:860px){footer.site .wrap.fgrid{grid-template-columns:1fr 1fr;gap:32px 24px;padding-top:48px}.fbrand{grid-column:1/-1}}
+@media (max-width:420px){footer.site .wrap.fgrid{grid-template-columns:1fr 1fr}.fcol:last-child{grid-column:auto}}
+.panel.sheet{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom));top:auto;right:auto;transform:translateX(-50%);width:min(380px,calc(100vw - 32px));z-index:60}
+
+/* inner pages keep their look but share the container */
+.page .wrap{max-width:calc(800px + 2*var(--gut))}
+@media (min-width:861px){
+  .feat{max-width:920px;gap:56px;grid-template-columns:1fr 1fr}
+  .feat .fimg{justify-self:start}
+  .feat.rev .fimg{justify-self:end}
+  .feat .ftext{justify-self:end;max-width:400px}
+  .feat.rev .ftext{justify-self:start}
+  .feat+.feat{margin-top:80px}
+}
+.ctacard .soon,.ctacard p{margin-left:auto;margin-right:auto}
+.mnav .wrap{align-items:stretch;text-align:left}
+.mnav a,.mnav button{width:100%;text-align:left!important;max-width:none}
+.panel.sheet{box-shadow:0 -10px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08)}
