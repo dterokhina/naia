@@ -805,3 +805,21 @@ button.store,.store{flex:0 0 auto;min-width:0;width:auto;min-height:0;height:54p
 .rows dt,.rows dd{grid-column:2}
 .rows div:nth-child(5) .ri svg{transform:scaleX(-1)}
 @media (max-width:560px){.stores .store:only-child{flex:0 0 auto;width:auto;padding:0 22px 0 16px}}
+
+/* ================= PHONE POLISH ================= */
+/* real phone frame around every app screenshot */
+img.phone{box-sizing:border-box;padding:7px;background:#0b0b0d;border-radius:44px;box-shadow:0 0 0 1.5px #2c2c31,0 0 0 3px #111,0 30px 60px rgba(0,0,0,.55)!important;filter:none!important}
+.trio img.phone{border-radius:36px;padding:6px}
+/* light beams fade out instead of ending in a hard line */
+.beams{-webkit-mask-image:linear-gradient(#000 45%,transparent 92%);mask-image:linear-gradient(#000 45%,transparent 92%)}
+.cine::after{display:none}
+@media (max-width:560px){
+  /* compact header: Text & motion becomes an icon */
+  .tools .pill span{display:none}
+  .tools .pill{width:40px;min-height:40px;padding:0;justify-content:center}
+  header.site .wrap{padding-top:8px;padding-bottom:10px;row-gap:8px}
+  .hero .shot{margin-top:36px}
+  .hero .phone{max-width:min(230px,62vw)}
+  .hero .glow{width:140%}
+  .trio .phone{max-width:200px}
+}
