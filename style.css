@@ -972,3 +972,34 @@ footer.site .wrap.fbottom{display:flex;justify-content:space-between;gap:12px 24
 .mnav .wrap{align-items:stretch;text-align:left}
 .mnav a,.mnav button{width:100%;text-align:left!important;max-width:none}
 .panel.sheet{box-shadow:0 -10px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08)}
+
+/* ===== v4: "Sound familiar?" + spacing pass ===== */
+.relate{padding-top:calc(var(--sec)*.7)!important}
+.relgrid{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px}
+.relgrid li{position:relative;max-width:none;padding:28px 26px 26px;border-radius:24px;background:var(--glass);border:1px solid var(--line);border-top:3px solid var(--c)}
+.relgrid li::before{content:"“";display:block;font-size:3rem;line-height:.6;font-weight:700;color:var(--c);margin-bottom:12px}
+.relgrid p{font-size:1.0625rem;line-height:1.55;color:var(--ink);font-weight:500;margin:0}
+.relout{max-width:40em;margin:40px auto 0;text-align:center;font-size:1.125rem;line-height:1.6;color:var(--muted)}
+.relout b{color:var(--ink)}
+@media (max-width:860px){.relgrid{grid-template-columns:1fr;max-width:520px;gap:14px}.relgrid li{padding:22px 22px 20px}.relout{margin-top:28px;font-size:1rem}}
+/* consistent rhythm: heading→content 48/32, text blocks 14 */
+.sechead{margin-bottom:48px}
+@media (max-width:560px){.sechead{margin-bottom:32px}}
+.hero.v3 .lead{max-width:32em}
+.ftext p,.relgrid p{text-wrap:pretty}
+.goalout{min-height:3.4em}
+.dive figcaption{margin-top:16px}
+.rows div{padding-top:20px;padding-bottom:20px}
+#faq .qfaq{margin-top:0}
+.ctacard .sub{max-width:28em}
+@media (max-width:860px){.hero.v3{padding-bottom:28px}}
+.relate{padding-top:calc(var(--sec)*.85)!important}
+/* no hard edge under the hero */
+.hero.v3{background:none}
+.hero.cine::before{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(transparent,var(--sea2));pointer-events:none;z-index:0}
+/* relatable lines, not testimonials: no quote marks */
+.relgrid li::before{content:"";width:28px;height:4px;border-radius:2px;background:var(--c);font-size:0;margin-bottom:16px}
+.relgrid li{border-top-width:1px;border-top-color:var(--line)}
+.beams{-webkit-mask-image:linear-gradient(#000 25%,transparent 78%);mask-image:linear-gradient(#000 25%,transparent 78%)}
+.hero.cine{overflow:visible}
+.hero.cine::before{display:none}
